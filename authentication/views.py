@@ -70,7 +70,7 @@ class RegistrationView(View):
 
                 user = User.objects.create_user(username=username, email=email)
                 user.set_password(password)
-                user.is_active = True
+                user.is_active = False
                 user.save()
                 current_site = get_current_site(request)
 
@@ -116,7 +116,6 @@ class RegistrationView(View):
 
                 # disconnect from the SMTP server
                 smtp_obj.quit()
-
 
              
                 messages.success(request, 'Account successfully created')
